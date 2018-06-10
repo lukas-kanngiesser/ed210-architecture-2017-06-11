@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+    <info
+        organisation="at.arz.ed210.architecture"
+        module="ArquillianExample"
+        status="integration">
+	</info>
+	
+	<configurations>
+        <conf name="compile"  description="Required to compile application"/>
+        <conf name="runtime"  description="Additional run-time dependencies" extends="compile"/>
+        <conf name="test"     description="Required for test only" extends="runtime"/>
+        <conf name="provided" description="Needed for compile, but will be present on the target platform."/>
+    </configurations>
+    
+	<dependencies>
+		<dependency org="org.jboss.spec" name="jboss-javaee-7.0" rev="1.1.1.Final" conf="provided->default"/>
+		
+		<dependency org="junit" name="junit" rev="4.12"/>
+		
+		<dependency org="org.jboss.arquillian.junit" name="arquillian-junit-container" rev="1.4.0.Final"/>
+		<dependency org="org.jboss.shrinkwrap" name="shrinkwrap-api" rev="1.2.6" />
+		
+		<dependency org="org.apache.httpcomponents" name="httpclient" rev="4.5.5"/>
+		
+		<!--JBoss currently BROKEN? -->
+		
+		<!-- https://mvnrepository.com/artifact/org.wildfly/wildfly-arquillian-container-remote -->
+		<!--dependency org="org.wildfly" name="wildfly-arquillian-container-remote" rev="8.2.1.Final"/-->
+		
+	</dependencies>
+</ivy-module>
